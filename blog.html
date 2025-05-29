@@ -1,105 +1,25 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Glow With Deen – Blog</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Blog</h1>
+    <p style="color:#7a4e57;">Let’s grow together ✨</p>
+  </header>
 
-body {
-    background-color: #f8f1f4;
-    font-family: 'Playfair Display', serif;
-    color: #7a4e57;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-}
-
-header {
-    margin: 40px 0; /* abstand zum header*/
-}
-
-h1 {
-    font-size: 2.5rem;
-    color: #c88ea7;
-}
-
-main {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 20px;
-}
-a.card { /*  für blog*/
-    text-decoration: none; /* Kein Unterstrich */
-    color: inherit;        /* Nutzt dieselbe Farbe wie der Rest */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-  }
-  a.card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  }
+  <main class="blog-container">
+    <a href="posts/post1.html" class="post-card">
+      🌸 How to Glow From Within
+    </a>
   
+    <a href="posts/post2.html" class="post-card">
+      🧕🏽 Becoming Her: Muslimah Edition
+    </a>
+  </main>
   
-.card {
-    position: relative;
-    background-color: #f3dce5;
-    width: 200px;
-    height: 150px;
-    border-radius: 15px; /*  runde ecken*/
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-.card:hover {
-    transform: scale(1.05); /* wenn man drüber hoovert wird es leicht größer*/
-}
-
-.overlay {
-    position: absolute;
-    bottom: 0;
-    background: rgba(255,255,255,0.85);
-    color: #7a4e57;
-    width: 100%;
-    text-align: center;
-    padding: 10px 0;
-    font-size: 1rem;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.card:hover .overlay {
-    opacity: 1;
-}
-.post-card {
-    background-color: #f3dce5;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-    color: #7a4e57;
-    font-weight: bold;
-    font-size: 1.2rem;
-    text-decoration: none; /* Versteckt blau/unterstrichen */
-    transition: transform 0.3s ease;
-    display: block;
-    margin-bottom: 20px;
-    max-width: 600px;
-    margin-inline: auto;
-    text-align: center;
-  }
-  
-  .post-card:hover {
-    transform: scale(1.03);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  }
-  
+</body>
+</html>
