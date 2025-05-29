@@ -30,7 +30,20 @@ main {
     justify-content: center;
     padding: 20px;
 }
-
+a.card { /*  für blog*/
+    text-decoration: none; /* Kein Unterstrich */
+    color: inherit;        /* Nutzt dieselbe Farbe wie der Rest */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  a.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  
 .card {
     position: relative;
     background-color: #f3dce5;
