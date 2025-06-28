@@ -1,25 +1,94 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Glow With Deen – Blog</title>
+  <meta charset="UTF-8" />
+  <title>GlowWithinDeen – Blog</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <header>
-    <h1>Blog</h1>
-    <p style="color:#7a4e57;">Let’s grow together ✨</p>
+
+  <header class="navbar">
+    <a href="index.html" class="logo">
+      <img src="GlowWithinDeen_Logo.jpeg" alt="GlowWithinDeen Logo" class="logo-img">
+    </a>
+    <nav class="nav-links">
+      <a href="blog.html">Blog</a>
+      <a href="youtube.html">YouTube</a>
+      <a href="shop.html">Shop</a>
+    </nav>
   </header>
 
-  <main class="blog-container">
-    <a href="posts/post1.html" class="post-card">
-      🌸 How to Glow From Within
+  <section class="blog-header">
+    <h1>Blog</h1>
+    <p>Let’s grow together ✨</p>
+  </section>
+
+  <main class="blog-grid">
+    <!-- Feste Beiträge -->
+    <a href="posts/post1.html" class="blog-card">
+      <img src="post1titlepic.jpg" alt="Glow From Within" />
+      <div class="blog-card-text">
+        <h2>🌸 How to Glow From Within</h2>
+        <p>A guide to spiritual self-love and finding peace through deen.</p>
+        <span class="card-meta">May 29, 2025 • Hadiqa</span>
+      </div>
     </a>
-  
-    <a href="posts/post2.html" class="post-card">
-      🧕🏽 Becoming Her: Muslimah Edition
-    </a>
+
+    
   </main>
-  
+
+  <script>
+    const container = document.querySelector(".blog-grid");
+    const isAdmin = localStorage.getItem("isAdmin") === "true";
+    let posts = JSON.parse(localStorage.getItem("published")) || [];
+
+    if (posts.length === 0) {
+      const msg = document.createElement("p");
+      msg.style.textAlign = "center";
+      msg.textContent = "No published blog posts yet.";
+      container.appendChild(msg);
+    }
+
+    posts.forEach((post, index) => {
+      const wrapper = document.createElement("div");
+      wrapper.className = "blog-card-wrapper";
+
+      const card = document.createElement("a");
+      card.className = "blog-card";
+      card.href = `post.html?index=${index}`;
+      card.innerHTML = `
+        <img src="${post.image}" alt="${post.title}" />
+        <div class="blog-card-text">
+          <h2>${post.title}</h2>
+          <p>${post.subtitle}</p>
+          <span class="card-meta">${post.date} • ${post.author}</span>
+        </div>
+      `;
+
+      wrapper.appendChild(card);
+
+      // ✂️ Nur Admins dürfen löschen
+      if (isAdmin) {
+        const deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "🗑️ Delete";
+        deleteBtn.className = "delete-btn";
+        deleteBtn.onclick = () => {
+          const confirmTitle = prompt("Type the exact blog title to confirm delete:");
+          if (confirmTitle === post.title) {
+            posts.splice(index, 1);
+            localStorage.setItem("published", JSON.stringify(posts));
+            alert(`✅ "${post.title}" has been deleted.`);
+            location.reload();
+          } else {
+            alert("❌ Title did not match. Try again.");
+          }
+        };
+        wrapper.appendChild(deleteBtn);
+      }
+
+      container.appendChild(wrapper);
+    });
+  </script>
 </body>
 </html>
